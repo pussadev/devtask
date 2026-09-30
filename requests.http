@@ -1,0 +1,12 @@
+POST http://localhost:8080/tarefas
+Content-Type: application/json
+
+{
+  "titulo": "Estudar Angular",
+  "descricao": "Aprender os fundamentos do Angular",
+  "status": "PENDENTE"
+}
+
+###
+
+GET http://localhost:8080/tarefas
