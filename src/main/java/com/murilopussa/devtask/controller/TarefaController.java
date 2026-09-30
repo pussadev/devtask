@@ -25,4 +25,9 @@ public class TarefaController {
     public Tarefa adicionarTarefa(@RequestBody Tarefa tarefa){
         return tarefaService.adicionarTarefa(tarefa);
     }
+
+    @GetMapping("/tarefas/{id}")
+    public Tarefa buscarTarefa(@PathVariable Long id){
+        return tarefaService.buscarTarefaPorId(id);
+    }
 }

@@ -2,7 +2,9 @@ package com.murilopussa.devtask.service;
 
 import com.murilopussa.devtask.model.StatusTarefa;
 import com.murilopussa.devtask.model.Tarefa;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,5 +45,17 @@ public class TarefaService {
         tarefas.add(tarefa);
 
         return tarefa;
+    }
+
+    public Tarefa buscarTarefaPorId(Long id){
+        for (Tarefa tarefa: tarefas){
+            if (tarefa.getId().equals(id)) {
+                return tarefa;
+            }
+        }
+        throw new ResponseStatusException(
+                HttpStatus.NOT_FOUND,
+                "Tarefa não encontrada"
+        );
     }
 }
